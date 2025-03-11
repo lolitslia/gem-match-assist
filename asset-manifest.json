@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/gem-match/static/css/main.e06432dc.css",
+    "main.js": "/gem-match/static/js/main.d95de8f7.js",
+    "static/media/background.png": "/gem-match/static/media/background.6da11fefced29a473e75.png",
+    "index.html": "/gem-match/index.html",
+    "main.e06432dc.css.map": "/gem-match/static/css/main.e06432dc.css.map",
+    "main.d95de8f7.js.map": "/gem-match/static/js/main.d95de8f7.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e06432dc.css",
+    "static/js/main.d95de8f7.js"
+  ]
+}
