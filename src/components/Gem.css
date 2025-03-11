@@ -1,0 +1,48 @@
+.gem {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+@media (max-width: 768px) {
+  .gem {
+    padding: 0;
+  }
+}
+
+.gem-svg {
+  width: 100%;
+  height: 180px;
+  margin-bottom: 10px;
+}
+
+.color-options {
+  display: flex;
+  padding: 10px;
+  width: 100%;
+  gap: 5px;
+}
+
+@media (max-width: 768px) {
+  .color-options {
+    padding: 3px;
+    gap: 0;
+  }
+}
+
+.color-option {
+  width: 20%;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid #000;
+  transition: transform 0.2s;
+  aspect-ratio: 1 / 1;
+}
+
+.color-option:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 5px rgba(0,0,0,0.3);
+}
