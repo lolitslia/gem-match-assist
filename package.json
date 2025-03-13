@@ -1,6 +1,6 @@
 {
-  "homepage": "https://lolitslia.github.io/gem-match",
-  "name": "gem-match",
+  "homepage": "https://lolitslia.github.io/gem-match-assist",
+  "name": "gem-match-assist",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
