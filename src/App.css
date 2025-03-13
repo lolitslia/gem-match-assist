@@ -39,7 +39,7 @@
 
 .title {
   font-family: 'Modak', cursive;
-  font-size: 4rem;
+  font-size: clamp(2.1875rem, 1.2538rem + 4.3939vw, 4rem);
   margin: 0;
   display: flex;
   justify-content: center;
@@ -118,6 +118,54 @@
   background-clip: text;
   color: transparent;
   transform: rotate(9deg);
+}
+
+.letter-a2 {
+  background: linear-gradient(to bottom, #fba623, #be780e);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  transform: rotate(-7deg);
+}
+
+.letter-s {
+  background: linear-gradient(to bottom, #a24efe, #5e2fa2);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  transform: rotate(9deg);
+}
+
+.letter-s2 {
+  background: linear-gradient(to bottom, #25d3f9, #27889f);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  transform: rotate(-8deg);
+}
+
+.letter-i {
+  background: linear-gradient(to bottom, #60fbb7, #3cbe85);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  transform: rotate(5deg);
+}
+
+.letter-s3 {
+  background: linear-gradient(to bottom, #fe6fa5, #8d2f4d);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  transform: rotate(-6deg);
+}
+
+.letter-t2 {
+  background: linear-gradient(to bottom, #fba623, #be780e);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  transform: rotate(10deg);
 }
 
 .gem-grid {

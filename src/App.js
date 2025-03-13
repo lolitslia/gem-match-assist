@@ -23,6 +23,13 @@ function App() {
           <span className="letter letter-t">t</span>
           <span className="letter letter-c">c</span>
           <span className="letter letter-h">h</span>
+          <span className="letter letter-space">&nbsp;</span>
+          <span className="letter letter-a2">A</span>
+          <span className="letter letter-s">s</span>
+          <span className="letter letter-s2">s</span>
+          <span className="letter letter-i">i</span>
+          <span className="letter letter-s3">s</span>
+          <span className="letter letter-t2">t</span>
         </h1>
         <div className="gem-grid">
           {Array(12).fill().map((_, index) => (
