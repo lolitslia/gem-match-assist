@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Gem.css';
 
-const Gem = ({ onReset, resetTrigger }) => {
+const Gem = ({ onReset, resetTrigger, isSimplified, isColorBlindMode }) => {
   const [selectedColor, setSelectedColor] = useState(null);
   
   const colorOptions = [
@@ -11,6 +11,22 @@ const Gem = ({ onReset, resetTrigger }) => {
     { name: 'orange', displayHex: '#fba623', polygonHex: '#fba623', pathHex: '#be780e' },
     { name: 'purple', displayHex: '#a24efe', polygonHex: '#a24efe', pathHex: '#5e2fa2' }
   ];
+
+    const colorSymbols = {
+    'teal': '🐎', // horseshoe
+    'green': '🌵', // cactus
+    'fuchsia': '👢', // boot
+    'orange': '⭐', // sheriff badge
+    'purple': '⚒️' // hammer and pick
+  };
+
+    const cycleColor = () => {
+    const currentIndex = selectedColor 
+      ? colorOptions.findIndex(color => color.name === selectedColor.name)
+      : -1;
+    const nextIndex = (currentIndex + 1) % colorOptions.length;
+    setSelectedColor(colorOptions[nextIndex]);
+  };
   
   const getPolygonColor = () => {
     if (!selectedColor) return '#928b80';
@@ -27,8 +43,33 @@ const Gem = ({ onReset, resetTrigger }) => {
   }, [resetTrigger]);
   
   return (
-    <div className="gem">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 264.44 261.79">
+    <div className="gem" style={{ position: 'relative' }}>
+      {isColorBlindMode && selectedColor && (
+        <div 
+          style={{
+            position: 'absolute', 
+            top: 'calc(50% - 1.5rem)', 
+            left: '50%', 
+            transform: 'translateX(-50%)', 
+            fontSize: '2rem',
+            zIndex: 10,
+            pointerEvents: 'none'
+          }}
+        >
+          {colorSymbols[selectedColor.name]}
+        </div>
+      )}
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 264.44 261.79" onClick={cycleColor}
+        style={{ cursor: 'pointer' }}>
+      {isSimplified ? (
+          <circle 
+            cx="132" 
+            cy="130" 
+            r="100" 
+            fill={getPolygonColor()} 
+          />
+        ) : (
+        <React.Fragment>
         <g id="Layer_2">
           <polygon points="74.17 5.45 184.48 5.45 258.25 100.45 217.25 206.07 175.25 255.45 89.17 255.45 38.66 193.66 5.17 103.45 74.17 5.45" style={{ fill: getPolygonColor(), stroke: getPolygonColor() }}/>
         </g>
@@ -42,7 +83,10 @@ const Gem = ({ onReset, resetTrigger }) => {
             <path d="M84.86,129.93c-3.06,6.49-5.25,13.44-7.85,20.12-2.91,7.48-5.58,15.1-7.53,22.88-.73,2.9,1.48,6.63,4.82,6.33,5.09-.46,10.89-4.98,7.51-10.63-1.38-2.31-4.15-3.31-6.71-2.55-3.15.94-4.49,4.08-5.62,6.85-2.44,5.95,7.23,8.54,9.64,2.66l-4.82-6.33,4.82,6.33c1.79-7.15,4.18-14.16,6.84-21.04,2.5-6.46,4.58-13.32,7.53-19.57,2.73-5.79-5.89-10.87-8.63-5.05h0Z" style={{ fill: getPathColor(), stroke: getPathColor() }}/>
           </g>
         </g>
+        </React.Fragment>
+        )}
       </svg>
+      {!isSimplified && (
       <div className="color-options">
         {colorOptions.map((option, index) => (
           <div
@@ -55,6 +99,7 @@ const Gem = ({ onReset, resetTrigger }) => {
           />
         ))}
       </div>
+       )}
     </div>
   );
 };
